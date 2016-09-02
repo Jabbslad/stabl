@@ -3,7 +3,7 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 Parse.Cloud.define('random', function(req, res) {
 
-    Array.prototype.randomElement = function (min=0, max) {
+    Array.prototype.randomElement = function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
@@ -11,7 +11,7 @@ Parse.Cloud.define('random', function(req, res) {
 
     query.find({
         success: function(results) {
-            var idx = randomElement(results.length);
+            var idx = randomElement(0, results.length);
             res.success(results[idx]);
         },
         error: function(error) {
