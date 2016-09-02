@@ -3,8 +3,8 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 Parse.Cloud.define('random', function(req, res) {
     query = new Parse.Query("PodcastItem");
-    if (req.params.genre) {
-        query.containedIn(req.params.genre)
+    if (req.params.genres) {
+        query.containedIn("genres", req.params.genres)
     }
     query.find({
         success: function(results) {
