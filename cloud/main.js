@@ -22,7 +22,7 @@ Parse.Cloud.define('random', function(req, res) {
     }
 
     if (req.params.duration) {
-        query.lessThanOrEqualTo("enclosure.duration", req.params.duration);
+        query.lessThanOrEqualTo("duration", req.params.duration);
     }
 
     query.find({
