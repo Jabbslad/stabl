@@ -13,7 +13,7 @@ Parse.Cloud.define('random', function(req, res) {
         }
     }
 
-    console.log(req.params.toJSON())
+    console.log(JSON.stringify(req.params));
 
     query = new Parse.Query("PodcastItem");
     
