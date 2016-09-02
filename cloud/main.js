@@ -11,8 +11,8 @@ Parse.Cloud.define('random', function(req, res) {
 
     query.find({
         success: function(results) {
-            var idx = randomElement(0, results.length);
-            res.success(results[idx]);
+            var index = randomElement(0, results.length);
+            res.success(results[index]);
         },
         error: function(error) {
             res.error(error);
