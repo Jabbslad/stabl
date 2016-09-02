@@ -26,7 +26,7 @@ Parse.Cloud.define('random', function(req, res) {
     query.find({
         success: function(results) {
             var max = results.length > 10 ? 10 : results.length;
-            shuffle(results);
+            //shuffle(results);
             res.success(fruits.slice(0, max));
         },
         error: function(error) {
