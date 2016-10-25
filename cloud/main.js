@@ -33,6 +33,8 @@ Parse.Cloud.define('random', function(req, res) {
         query.greaterThanOrEqualTo("pubDate", Date.parse(req.params.pubDate));
     }
 
+    console.log(JSON.stringify(query));
+
     query.find({
         success: function(results) {
             var max = results.length > 10 ? 10 : results.length;
