@@ -16,6 +16,12 @@ Parse.Cloud.define('random', function(req, res) {
     console.log(JSON.stringify(req));
 
     query = new Parse.Query("PodcastItem");
+
+    var max = 10;
+
+    if (req.params.max) {
+        max = req.params.max;
+    }
     
     if (req.params.genres) {
         query.containedIn("genres", req.params.genres);
@@ -37,7 +43,7 @@ Parse.Cloud.define('random', function(req, res) {
 
     query.find({
         success: function(results) {
-            var max = results.length > 10 ? 10 : results.length;
+            max = results.length > max ? max : results.length;
             shuffle(results);
             res.success(results.slice(0, max));
         },
